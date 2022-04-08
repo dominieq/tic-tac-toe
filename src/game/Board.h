@@ -4,25 +4,36 @@
 #include <ostream>
 
 enum BoardContent : int {
-    EMPTY,
-    X_SIGN,
-    O_SIGN
+	EMPTY,
+	X_SIGN,
+	O_SIGN
 };
 
 class Board {
 
-    BoardContent** Content;
+	BoardContent **Content;
 
 public:
-    static const int BoardSize = 3;
+	static const int BoardSize = 3;
 
-    Board();
-    virtual ~Board();
+	Board();
 
-    friend std::ostream &operator<<(std::ostream &os, const Board &board);
+	Board(const Board &Other);
+
+	virtual ~Board();
+
+	friend std::ostream &operator<<(std::ostream &OS, const Board &InBoard);
+
+	BoardContent *&operator[](int Index) const;
+
+	BoardContent *&operator[](int Index);
+
+	Board &operator=(const Board &Other);
+
+	BoardContent IsToe();
 
 protected:
-    static char BoardContentToChar(const BoardContent& Element);
+	static char BoardContentToChar(const BoardContent &Element);
 };
 
 
