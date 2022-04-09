@@ -25,12 +25,25 @@ add_executable(TicTacToe
         src/game/Board.h
         src/Utils.h
         src/view/Menu.cpp
-        src/view/Menu.h)
+        src/view/Menu.h
+        src/game/Game.cpp
+        src/game/Game.h
+        src/game/player/Player.cpp
+        src/game/player/Player.h
+        src/game/player/HumanPlayer.cpp
+        src/game/player/HumanPlayer.h)
 
 add_executable(TicTacToe_TestSuite
         src/game/Board.cpp
         src/game/Board.h
-        test/game/Board_Test.cpp)
+        src/game/player/Player.cpp
+        src/game/player/Player.h
+        src/game/player/HumanPlayer.cpp
+        src/game/player/HumanPlayer.h
+        src/game/Game.cpp
+        src/game/Game.h
+        test/game/Board_Test.cpp
+        test/game/Game_Test.cpp)
 
 target_link_libraries(TicTacToe_TestSuite gtest_main)
 include(GoogleTest)
