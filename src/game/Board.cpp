@@ -88,7 +88,7 @@ Board &Board::operator=(const Board &Other) {
 	return *this;
 }
 
-BoardContent Board::IsToe() {
+BoardContent Board::DetermineWinner() {
 	for (int i = 0; i < BoardSize; i++) {
 		// Check rows
 		if (Content[i][0] != EMPTY &&

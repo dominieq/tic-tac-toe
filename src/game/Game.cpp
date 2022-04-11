@@ -43,7 +43,7 @@ BoardContent Game::PerformMove(Player*& Player) {
 	Player->PerformMove(GameBoard);
 
 	if (++Moves >= 5) {
-		return GameBoard->IsToe();
+		return GameBoard->DetermineWinner();
 	} else {
 		return EMPTY;
 	}

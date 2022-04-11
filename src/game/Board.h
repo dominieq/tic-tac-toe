@@ -30,7 +30,7 @@ public:
 
 	Board &operator=(const Board &Other);
 
-	BoardContent IsToe();
+	BoardContent DetermineWinner();
 
 protected:
 	static char BoardContentToChar(const BoardContent &Element);
