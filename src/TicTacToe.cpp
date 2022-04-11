@@ -9,7 +9,7 @@ int main() {
 	MainMenuChoices.emplace_back("New Game");
 	MainMenuChoices.emplace_back("Help");
 	MainMenuChoices.emplace_back("Exit");
-	Menu MainMenu("Tic-Tac-IsToe", MainMenuChoices);
+	Menu MainMenu("Tic-Tac-Toe", MainMenuChoices);
 
 	vector<string> NewGameChoices;
 	NewGameChoices.emplace_back("Local Game");
