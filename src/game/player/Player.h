@@ -10,7 +10,7 @@ public:
 	Player(std::string InName, BoardContent InSign);
 	virtual ~Player();
 
-	virtual void PerformMove(Board*& Board) = 0;
+	virtual void PerformMove(Board*& InBoard) = 0;
 
 	const std::string& getName() const;
 
