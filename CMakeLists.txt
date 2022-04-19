@@ -31,7 +31,11 @@ add_executable(TicTacToe
         src/game/player/Player.cpp
         src/game/player/Player.h
         src/game/player/HumanPlayer.cpp
-        src/game/player/HumanPlayer.h)
+        src/game/player/HumanPlayer.h
+        src/game/player/AIPlayer.cpp
+        src/game/player/AIPlayer.h
+        src/game/player/MaximizerPlayer.cpp
+        src/game/player/MaximizerPlayer.h)
 
 add_executable(TicTacToe_TestSuite
         src/game/Board.cpp
@@ -42,6 +46,10 @@ add_executable(TicTacToe_TestSuite
         src/game/player/HumanPlayer.h
         src/game/Game.cpp
         src/game/Game.h
+        src/game/player/AIPlayer.cpp
+        src/game/player/AIPlayer.h
+        src/game/player/MaximizerPlayer.cpp
+        src/game/player/MaximizerPlayer.h
         test/game/Board_Test.cpp
         test/game/Game_Test.cpp)
 

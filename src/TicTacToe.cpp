@@ -29,6 +29,11 @@ int main() {
 							Game.PlayGame();
 							break;
 						}
+						case 2: {
+							Game Game("Player");
+							Game.PlayGame();
+							break;
+						}
 						default:
 							break;
 					}

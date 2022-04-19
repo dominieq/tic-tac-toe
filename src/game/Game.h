@@ -2,6 +2,7 @@
 #define TICTACTOE_GAME_H
 
 #include "player/HumanPlayer.h"
+#include "player/MaximizerPlayer.h"
 
 class Game {
 
@@ -12,7 +13,10 @@ class Game {
 	int Moves = 0;
 
 public:
+	explicit Game(const std::string& Name);
+
 	Game(const std::string& Name_1, const std::string& Name_2);
+
 	virtual ~Game();
 
 	void PlayGame();
