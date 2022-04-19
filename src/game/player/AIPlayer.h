@@ -2,7 +2,6 @@
 #define TICTACTOE_AIPLAYER_H
 
 #include "Player.h"
-#include <vector>
 
 class AIPlayer : public Player {
 
