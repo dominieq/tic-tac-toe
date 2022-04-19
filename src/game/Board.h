@@ -4,9 +4,9 @@
 #include <ostream>
 
 enum BoardContent : int {
-	EMPTY,
-	X_SIGN,
-	O_SIGN
+	EMPTY = 0,
+	X_SIGN = -9,
+	O_SIGN = 9
 };
 
 class Board {
@@ -31,6 +31,8 @@ public:
 	Board &operator=(const Board &Other);
 
 	BoardContent DetermineWinner();
+
+	bool AnyMovesLeft();
 
 protected:
 	static char BoardContentToChar(const BoardContent &Element);

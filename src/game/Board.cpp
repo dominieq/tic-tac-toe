@@ -126,6 +126,16 @@ BoardContent Board::DetermineWinner() {
 	return EMPTY;
 }
 
+bool Board::AnyMovesLeft() {
+	for (int i = 0; i < BoardSize; i++) {
+		for (int j = 0; j < BoardSize; j++) {
+			if (Content[i][j] == EMPTY) return true;
+		}
+	}
+
+	return false;
+}
+
 char Board::BoardContentToChar(const BoardContent &Element) {
 	switch (Element) {
 		case BoardContent::X_SIGN:

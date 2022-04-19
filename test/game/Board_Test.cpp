@@ -16,6 +16,15 @@ TEST_F(BoardTest, should_not_find_toe_when_board_is_empty) {
 	ASSERT_EQ(Actual, BoardContent::EMPTY);
 }
 
+TEST_F(BoardTest, should_return_true_when_board_is_empty) {
+
+	// when
+	const bool Actual = Subject.AnyMovesLeft();
+
+	// then
+	ASSERT_TRUE(Actual);
+}
+
 class BoardTestWithIndexAndSignParams :
 		public BoardTest,
 		public ::testing::WithParamInterface<std::tuple<int, BoardContent>> {
@@ -96,8 +105,24 @@ TEST_P(BoardTestWithSignParam, should_find_toe_in_diagonal_from_right_to_left) {
 	ASSERT_EQ(Actual, Expected);
 }
 
+TEST_P(BoardTestWithSignParam, should_return_true_when_board_is_filled) {
+
+	// given
+	for (int i = 0; i < Board::BoardSize; i++) {
+		for (int j = 0; j < Board::BoardSize; j++) {
+			Subject[i][j] = GetParam();
+		}
+	}
+
+	// when
+	const bool Actual = Subject.AnyMovesLeft();
+
+	// then
+	ASSERT_FALSE(Actual);
+}
+
 INSTANTIATE_TEST_SUITE_P(
-		find_toe_in_diagonals,
+		board_test_with_sign_param,
 		BoardTestWithSignParam,
 		::testing::Values(
 				X_SIGN,
