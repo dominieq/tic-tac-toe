@@ -8,7 +8,8 @@ MaximizerPlayer::MaximizerPlayer(const std::string& inName, BoardContent inSign)
 
 void MaximizerPlayer::PerformMove(Board*& InBoard) {
 
-	int MaxScore = -1000;
+	const bool IsMax = Sign == O_SIGN;
+	int MaxScore = IsMax ? -1000 : 1000;
 	int MaxRow = -1;
 	int MaxColumn = -1;
 
@@ -18,40 +19,64 @@ void MaximizerPlayer::PerformMove(Board*& InBoard) {
 			if ((*InBoard)[i][j] == EMPTY) {
 
 				(*InBoard)[i][j] = Sign;
-				auto MoveScore = Minmax(InBoard, 0);
+				auto MoveScore = Minmax(InBoard, 0, !IsMax);
 				(*InBoard)[i][j] = EMPTY;
 
-				if (MoveScore > MaxScore) {
-					MaxScore = MoveScore;
-					MaxRow = i;
-					MaxColumn = j;
+				if (IsMax) {
+					if (MoveScore > MaxScore) {
+						MaxScore = MoveScore;
+						MaxRow = i;
+						MaxColumn = j;
+					}
+				} else {
+					if (MoveScore < MaxScore) {
+						MaxScore = MoveScore;
+						MaxRow = i;
+						MaxColumn = j;
+					}
 				}
 			}
 		}
 	}
 
-	if (MaxScore >= 0) {
-		(*InBoard)[MaxRow][MaxColumn] = Sign;
-	}
+	(*InBoard)[MaxRow][MaxColumn] = Sign;
 }
 
-int MaximizerPlayer::Minmax(Board*& InBoard, int depth) {
+int MaximizerPlayer::Minmax(Board*& InBoard, int depth, bool IsMax) {
 
 	BoardContent Score = InBoard->DetermineWinner();
 
-	if (Score == Sign) return Score - depth;
+	if (Score != EMPTY) return Score;
 	if (!InBoard->AnyMovesLeft()) return 0;
 
-	int BestScore = -1000;
+	int BestScore;
 
-	for (int i = 0; i < Board::BoardSize; i++) {
-		for (int j = 0; j < Board::BoardSize; j++) {
+	if (IsMax) {
+		BestScore = -1000;
 
-			if ((*InBoard)[i][j] == EMPTY) {
+		for (int i = 0; i < Board::BoardSize; i++) {
+			for (int j = 0; j < Board::BoardSize; j++) {
 
-				(*InBoard)[i][j] = Sign;
-				BestScore = max(BestScore, Minmax(InBoard, depth + 1));
-				(*InBoard)[i][j] = EMPTY;
+				if ((*InBoard)[i][j] == EMPTY) {
+
+					(*InBoard)[i][j] = O_SIGN;
+					BestScore = max(BestScore, Minmax(InBoard, depth + 1, !IsMax));
+					(*InBoard)[i][j] = EMPTY;
+				}
+			}
+		}
+	} else {
+		BestScore = 1000;
+
+		for (int i = 0; i < Board::BoardSize; i++) {
+			for (int j = 0; j < Board::BoardSize; j++) {
+
+				if ((*InBoard)[i][j] == EMPTY) {
+
+					(*InBoard)[i][j] = X_SIGN;
+					BestScore = min(BestScore, Minmax(InBoard, depth + 1, !IsMax));
+					(*InBoard)[i][j] = EMPTY;
+				}
 			}
 		}
 	}

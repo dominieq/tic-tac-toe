@@ -11,7 +11,7 @@ public:
 	void PerformMove(Board*& InBoard) override;
 
 protected:
-	int Minmax(Board*& InBoard, int depth) override;
+	int Minmax(Board*& InBoard, int depth, bool IsMax) override;
 };
 
 

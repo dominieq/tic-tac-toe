@@ -51,7 +51,8 @@ add_executable(TicTacToe_TestSuite
         src/game/player/MaximizerPlayer.cpp
         src/game/player/MaximizerPlayer.h
         test/game/Board_Test.cpp
-        test/game/Game_Test.cpp)
+        test/game/Game_Test.cpp
+        test/game/player/MaximizerPlayer_Test.cpp)
 
 target_link_libraries(TicTacToe_TestSuite gtest_main)
 include(GoogleTest)

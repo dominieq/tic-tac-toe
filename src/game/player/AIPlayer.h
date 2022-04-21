@@ -9,7 +9,7 @@ public:
 	AIPlayer(const std::string &InName, BoardContent InSign);
 
 protected:
-	virtual int Minmax(Board*& InBoard, int depth) = 0;
+	virtual int Minmax(Board*& InBoard, int depth, bool IsMax) = 0;
 };
 
 
