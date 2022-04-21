@@ -2,19 +2,21 @@
 #include <iostream>
 #include <utility>
 
-Menu::Menu(std::string InTitle, std::vector<std::string> InChoices) :
-		Title(std::move(InTitle)), Choices(std::move(InChoices)) {}
+using namespace std;
+
+Menu::Menu(string InTitle, vector<string> InChoices) :
+		Title(move(InTitle)), Choices(move(InChoices)) {}
 
 Menu::~Menu() = default;
 
 int Menu::ShowAndWait() const {
-    int UserChoice = 0;
-    std::cout << Title << std::endl;
+	int UserChoice = 0;
+	cout << Title << endl;
 
-    for (int i = 0; i < Choices.size(); i++) {
-        std::cout << i + 1  << ": " << Choices[i] << std::endl;
-    }
-    std::cout << ": ";
-    std::cin >> UserChoice;
-    return UserChoice;
+	for (int i = 0; i < Choices.size(); i++) {
+		cout << i + 1 << ": " << Choices[i] << endl;
+	}
+	cout << ": ";
+	cin >> UserChoice;
+	return UserChoice;
 }

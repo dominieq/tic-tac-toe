@@ -5,14 +5,15 @@
 #include <vector>
 
 class Menu {
-    std::string Title;
-    std::vector<std::string> Choices;
+	std::string Title;
+	std::vector<std::string> Choices;
 
 public:
-    Menu(std::string InTitle, std::vector<std::string> InChoices);
-    virtual ~Menu();
+	Menu(std::string InTitle, std::vector<std::string> InChoices);
 
-    virtual int ShowAndWait() const;
+	virtual ~Menu();
+
+	virtual int ShowAndWait() const;
 };
 
 
