@@ -7,7 +7,7 @@ class HumanPlayer : public Player {
 public:
 	HumanPlayer(const std::string &InName, BoardContent InSign);
 
-	void PerformMove(Board *&Board) override;
+	void PerformMove(Board*& InBoard) override;
 };
 
 

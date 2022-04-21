@@ -12,8 +12,17 @@ protected:
 };
 
 TEST_F(BoardTest, should_not_find_toe_when_board_is_empty) {
-	const BoardContent Actual = Subject.IsToe();
+	const BoardContent Actual = Subject.DetermineWinner();
 	ASSERT_EQ(Actual, BoardContent::EMPTY);
+}
+
+TEST_F(BoardTest, should_return_true_when_board_is_empty) {
+
+	// when
+	const bool Actual = Subject.AnyMovesLeft();
+
+	// then
+	ASSERT_TRUE(Actual);
 }
 
 class BoardTestWithIndexAndSignParams :
@@ -38,7 +47,7 @@ TEST_P(BoardTestWithIndexAndSignParams, should_find_toe_in_verse) {
 	const int VerseIndex = std::get<0>(GetParam());
 	PopulateVerse(VerseIndex);
 
-	const BoardContent Actual = Subject.IsToe();
+	const BoardContent Actual = Subject.DetermineWinner();
 	const BoardContent Expected = std::get<1>(GetParam());
 	ASSERT_EQ(Actual, Expected);
 }
@@ -47,7 +56,7 @@ TEST_P(BoardTestWithIndexAndSignParams, should_find_toe_in_column) {
 	const int ColumnIndex = std::get<0>(GetParam());
 	PopulateColumn(ColumnIndex);
 
-	const BoardContent Actual = Subject.IsToe();
+	const BoardContent Actual = Subject.DetermineWinner();
 	const BoardContent Expected = std::get<1>(GetParam());
 	ASSERT_EQ(Actual, Expected);
 }
@@ -75,7 +84,7 @@ TEST_P(BoardTestWithSignParam, should_find_toe_in_diagonal_from_left_to_right) {
 	Subject[2][2] = GetParam();
 
 	// when
-	const BoardContent Actual = Subject.IsToe();
+	const BoardContent Actual = Subject.DetermineWinner();
 
 	// then
 	const BoardContent Expected = GetParam();
@@ -89,15 +98,31 @@ TEST_P(BoardTestWithSignParam, should_find_toe_in_diagonal_from_right_to_left) {
 	Subject[2][0] = GetParam();
 
 	// when
-	const BoardContent Actual = Subject.IsToe();
+	const BoardContent Actual = Subject.DetermineWinner();
 
 	// then
 	const BoardContent Expected = GetParam();
 	ASSERT_EQ(Actual, Expected);
 }
 
+TEST_P(BoardTestWithSignParam, should_return_true_when_board_is_filled) {
+
+	// given
+	for (int i = 0; i < Board::BoardSize; i++) {
+		for (int j = 0; j < Board::BoardSize; j++) {
+			Subject[i][j] = GetParam();
+		}
+	}
+
+	// when
+	const bool Actual = Subject.AnyMovesLeft();
+
+	// then
+	ASSERT_FALSE(Actual);
+}
+
 INSTANTIATE_TEST_SUITE_P(
-		find_toe_in_diagonals,
+		board_test_with_sign_param,
 		BoardTestWithSignParam,
 		::testing::Values(
 				X_SIGN,

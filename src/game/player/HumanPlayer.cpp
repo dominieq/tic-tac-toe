@@ -6,7 +6,7 @@ using namespace std;
 HumanPlayer::HumanPlayer(const std::string &InName, BoardContent InSign)
 : Player(InName, InSign) {}
 
-void HumanPlayer::PerformMove(Board*& Board) {
+void HumanPlayer::PerformMove(Board*& InBoard) {
 	int row, column;
 
 	while (true) {
@@ -24,12 +24,12 @@ void HumanPlayer::PerformMove(Board*& Board) {
 			if (column > 3) cout << "Column must be lower than 4." << endl;
 		}
 
-		if ((*Board)[row][column] != EMPTY) {
+		if ((*InBoard)[row][column] != EMPTY) {
 			cout << "Position's already taken. Choose again." << endl;
 			continue;
 		}
 
-		(*Board)[row][column] = Sign;
+		(*InBoard)[row][column] = Sign;
 		break;
 	}
 }

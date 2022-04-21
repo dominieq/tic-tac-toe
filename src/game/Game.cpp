@@ -9,6 +9,12 @@ Game::Game(const string& Name_1, const string& Name_2) {
 	GameBoard = new Board();
 }
 
+Game::Game(const std::string& Name) {
+	Player_1 = new HumanPlayer(Name, X_SIGN);
+	Player_2 = new ComputerPlayer("Computer", O_SIGN);
+	GameBoard = new Board();
+}
+
 Game::~Game() {
 	delete Player_1;
 	delete Player_2;
@@ -43,7 +49,7 @@ BoardContent Game::PerformMove(Player*& Player) {
 	Player->PerformMove(GameBoard);
 
 	if (++Moves >= 5) {
-		return GameBoard->IsToe();
+		return GameBoard->DetermineWinner();
 	} else {
 		return EMPTY;
 	}

@@ -88,7 +88,7 @@ Board &Board::operator=(const Board &Other) {
 	return *this;
 }
 
-BoardContent Board::IsToe() {
+BoardContent Board::DetermineWinner() {
 	for (int i = 0; i < BoardSize; i++) {
 		// Check rows
 		if (Content[i][0] != EMPTY &&
@@ -124,6 +124,16 @@ BoardContent Board::IsToe() {
 	}
 
 	return EMPTY;
+}
+
+bool Board::AnyMovesLeft() {
+	for (int i = 0; i < BoardSize; i++) {
+		for (int j = 0; j < BoardSize; j++) {
+			if (Content[i][j] == EMPTY) return true;
+		}
+	}
+
+	return false;
 }
 
 char Board::BoardContentToChar(const BoardContent &Element) {
