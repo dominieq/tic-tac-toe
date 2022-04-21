@@ -13,7 +13,7 @@ public:
 
 	virtual ~Menu();
 
-	virtual int ShowAndWait() const;
+	virtual int ShowAndWait(std::istream& StdInput, std::ostream& StdOutput) const;
 };
 
 
