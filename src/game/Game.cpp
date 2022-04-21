@@ -11,7 +11,7 @@ Game::Game(const string& Name_1, const string& Name_2) {
 
 Game::Game(const std::string& Name) {
 	Player_1 = new HumanPlayer(Name, X_SIGN);
-	Player_2 = new MaximizerPlayer("Computer", O_SIGN);
+	Player_2 = new ComputerPlayer("Computer", O_SIGN);
 	GameBoard = new Board();
 }
 

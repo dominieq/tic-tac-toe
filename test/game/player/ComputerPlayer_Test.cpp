@@ -1,15 +1,15 @@
 #include <gtest/gtest.h>
-#include "../../../src/game/player/MaximizerPlayer.h"
+#include "../../../src/game/player/ComputerPlayer.h"
 
-class MaximizerPlayerTest : public ::testing::Test {
+class ComputerPlayerTest : public ::testing::Test {
 
 protected:
 	Board TestBoard;
-	MaximizerPlayer* Subject;
+	ComputerPlayer* Subject;
 
 	void SetUp() override {
 		TestBoard = Board();
-		Subject = new MaximizerPlayer("TestPlayer", X_SIGN);
+		Subject = new ComputerPlayer("TestPlayer", X_SIGN);
 	}
 
 	void TearDown() override {
@@ -17,7 +17,7 @@ protected:
 	}
 };
 
-TEST_F(MaximizerPlayerTest, should_return_best_score_when_second_move) {
+TEST_F(ComputerPlayerTest, should_return_best_score_when_second_move) {
 
 	// given
 	TestBoard[0][0] = X_SIGN;

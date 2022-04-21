@@ -2,7 +2,7 @@
 #define TICTACTOE_GAME_H
 
 #include "player/HumanPlayer.h"
-#include "player/MaximizerPlayer.h"
+#include "player/ComputerPlayer.h"
 
 class Game {
 

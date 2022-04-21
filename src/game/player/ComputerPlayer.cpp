@@ -1,12 +1,12 @@
-#include "MaximizerPlayer.h"
+#include "ComputerPlayer.h"
 
 using namespace std;
 
-MaximizerPlayer::MaximizerPlayer(const std::string& inName, BoardContent inSign)
-: AIPlayer(inName, inSign) {
+ComputerPlayer::ComputerPlayer(const std::string& InName, BoardContent InSign)
+: Player(InName, InSign) {
 }
 
-void MaximizerPlayer::PerformMove(Board*& InBoard) {
+void ComputerPlayer::PerformMove(Board*& InBoard) {
 
 	const bool IsMax = Sign == O_SIGN;
 	int MaxScore = IsMax ? -1000 : 1000;
@@ -42,7 +42,7 @@ void MaximizerPlayer::PerformMove(Board*& InBoard) {
 	(*InBoard)[MaxRow][MaxColumn] = Sign;
 }
 
-int MaximizerPlayer::Minmax(Board*& InBoard, int depth, bool IsMax) {
+int ComputerPlayer::Minmax(Board*& InBoard, int Depth, bool IsMax) {
 
 	BoardContent Score = InBoard->DetermineWinner();
 
@@ -60,7 +60,7 @@ int MaximizerPlayer::Minmax(Board*& InBoard, int depth, bool IsMax) {
 				if ((*InBoard)[i][j] == EMPTY) {
 
 					(*InBoard)[i][j] = O_SIGN;
-					BestScore = max(BestScore, Minmax(InBoard, depth + 1, !IsMax));
+					BestScore = max(BestScore, Minmax(InBoard, Depth + 1, !IsMax));
 					(*InBoard)[i][j] = EMPTY;
 				}
 			}
@@ -74,7 +74,7 @@ int MaximizerPlayer::Minmax(Board*& InBoard, int depth, bool IsMax) {
 				if ((*InBoard)[i][j] == EMPTY) {
 
 					(*InBoard)[i][j] = X_SIGN;
-					BestScore = min(BestScore, Minmax(InBoard, depth + 1, !IsMax));
+					BestScore = min(BestScore, Minmax(InBoard, Depth + 1, !IsMax));
 					(*InBoard)[i][j] = EMPTY;
 				}
 			}

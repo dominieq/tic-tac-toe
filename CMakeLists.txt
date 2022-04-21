@@ -32,10 +32,8 @@ add_executable(TicTacToe
         src/game/player/Player.h
         src/game/player/HumanPlayer.cpp
         src/game/player/HumanPlayer.h
-        src/game/player/AIPlayer.cpp
-        src/game/player/AIPlayer.h
-        src/game/player/MaximizerPlayer.cpp
-        src/game/player/MaximizerPlayer.h)
+        src/game/player/ComputerPlayer.cpp
+        src/game/player/ComputerPlayer.h)
 
 add_executable(TicTacToe_TestSuite
         src/game/Board.cpp
@@ -46,13 +44,11 @@ add_executable(TicTacToe_TestSuite
         src/game/player/HumanPlayer.h
         src/game/Game.cpp
         src/game/Game.h
-        src/game/player/AIPlayer.cpp
-        src/game/player/AIPlayer.h
-        src/game/player/MaximizerPlayer.cpp
-        src/game/player/MaximizerPlayer.h
+        src/game/player/ComputerPlayer.cpp
+        src/game/player/ComputerPlayer.h
         test/game/Board_Test.cpp
         test/game/Game_Test.cpp
-        test/game/player/MaximizerPlayer_Test.cpp)
+        test/game/player/ComputerPlayer_Test.cpp)
 
 target_link_libraries(TicTacToe_TestSuite gtest_main)
 include(GoogleTest)
