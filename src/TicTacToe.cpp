@@ -19,11 +19,11 @@ int main() {
 
 	int MainChoice = 0;
 	while (MainChoice != 3) {
-		switch (MainChoice = MainMenu.ShowAndWait()) {
+		switch (MainChoice = MainMenu.ShowAndWait(cin, cout)) {
 			case 1: {
 				int NewGameChoice = 0;
 				while (NewGameChoice != 3) {
-					switch (NewGameChoice = NewGameMenu.ShowAndWait()) {
+					switch (NewGameChoice = NewGameMenu.ShowAndWait(cin, cout)) {
 						case 1: {
 							Game Game("Player1", "Player2");
 							Game.PlayGame();

@@ -36,6 +36,8 @@ add_executable(TicTacToe
         src/game/player/ComputerPlayer.h)
 
 add_executable(TicTacToe_TestSuite
+        src/view/Menu.cpp
+        src/view/Menu.h
         src/game/Board.cpp
         src/game/Board.h
         src/game/player/Player.cpp
@@ -46,6 +48,7 @@ add_executable(TicTacToe_TestSuite
         src/game/Game.h
         src/game/player/ComputerPlayer.cpp
         src/game/player/ComputerPlayer.h
+        test/view/Menu_Test.cpp
         test/game/Board_Test.cpp
         test/game/Game_Test.cpp
         test/game/player/ComputerPlayer_Test.cpp)
