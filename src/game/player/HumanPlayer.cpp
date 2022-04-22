@@ -3,8 +3,8 @@
 
 using namespace std;
 
-HumanPlayer::HumanPlayer(const std::string &InName, BoardContent InSign)
-: Player(InName, InSign) {}
+HumanPlayer::HumanPlayer(const std::string& InName, BoardContent InSign)
+		: Player(InName, InSign) {}
 
 void HumanPlayer::PerformMove(Board*& InBoard) {
 	int row, column;

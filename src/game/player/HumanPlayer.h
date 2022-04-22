@@ -4,8 +4,9 @@
 #include "Player.h"
 
 class HumanPlayer : public Player {
+
 public:
-	HumanPlayer(const std::string &InName, BoardContent InSign);
+	HumanPlayer(const std::string& InName, BoardContent InSign);
 
 	void PerformMove(Board*& InBoard) override;
 };

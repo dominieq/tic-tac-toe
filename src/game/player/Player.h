@@ -8,11 +8,12 @@ class Player {
 
 public:
 	Player(std::string InName, BoardContent InSign);
+
 	virtual ~Player();
 
 	virtual void PerformMove(Board*& InBoard) = 0;
 
-	const std::string& getName() const;
+	const std::string& GetName() const;
 
 protected:
 	std::string Name;

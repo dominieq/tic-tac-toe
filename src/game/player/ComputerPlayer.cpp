@@ -3,7 +3,7 @@
 using namespace std;
 
 ComputerPlayer::ComputerPlayer(const std::string& InName, BoardContent InSign)
-: Player(InName, InSign) {
+		: Player(InName, InSign) {
 }
 
 void ComputerPlayer::PerformMove(Board*& InBoard) {
