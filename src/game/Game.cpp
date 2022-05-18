@@ -33,10 +33,10 @@ void Game::PlayGame() {
 
 	switch (Winner) {
 		case X_SIGN:
-			cout << Player_1->getName() << " won" << endl;
+			cout << Player_1->GetName() << " won" << endl;
 			break;
 		case O_SIGN:
-			cout << Player_2->getName() << " won" << endl;
+			cout << Player_2->GetName() << " won" << endl;
 			break;
 		default:
 			cout << "Draw" << endl;

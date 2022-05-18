@@ -1,11 +1,12 @@
 #include "Player.h"
-#include <utility>
 
-Player::Player(std::string InName, BoardContent InSign)
-: Name(std::move(InName)), Sign(InSign) {}
+using namespace std;
+
+Player::Player(string InName, BoardContent InSign)
+		: Name(move(InName)), Sign(InSign) {}
 
 Player::~Player() = default;
 
-const std::string &Player::getName() const {
+const string& Player::GetName() const {
 	return Name;
 }
