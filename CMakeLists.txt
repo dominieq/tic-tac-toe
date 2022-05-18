@@ -51,6 +51,7 @@ add_executable(TicTacToe_TestSuite
         test/view/Menu_Test.cpp
         test/game/Board_Test.cpp
         test/game/Game_Test.cpp
+        test/game/player/HumanPlayer_Test.cpp
         test/game/player/ComputerPlayer_Test.cpp)
 
 target_link_libraries(TicTacToe_TestSuite gtest_main)

@@ -26,6 +26,16 @@ public:
 	 * @param InBoard The current state of a tic-tac-toe board.
 	 */
 	void PerformMove(Board*& InBoard) override;
+
+	/**
+	 * Performs a move by selecting a row and column via the provided input and output streams.
+	 *
+	 * @param InBoard   The current state of a tic-tac-toe board.
+	 * @param StdInput  The input stream. Preferably the <code>cin</code>.
+	 * @param StdOutput The output stream. Preferably the <code>cout</code>.
+	 */
+	void PerformMove(Board*& InBoard, std::istream& StdInput, std::ostream& StdOutput);
+
 };
 
 
