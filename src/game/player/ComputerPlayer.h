@@ -6,7 +6,7 @@
 /**
  * Represents a "Computer" player that responds to opponent's actions <br/>
  * by analyzing a tic-tac-toe board with the
- * <a href="https://en.wikipedia.org/wiki/Minimax" target="_blank">Minmax algorithm</a>.
+ * <a href="https://en.wikipedia.org/wiki/Minimax" target="_blank">Minimax algorithm</a>.
  *
  * @author Dominik Szmyt
  * @since 1.0.0
@@ -23,7 +23,7 @@ public:
 	ComputerPlayer(const std::string& InName, BoardContent InSign);
 
 	/**
-	 * Performs a move by executing the Minmax algorithm.
+	 * Performs a move by executing the Minimax algorithm.
 	 *
 	 * @param InBoard The current state of a tic-tac-toe board.
 	 */
@@ -31,14 +31,14 @@ public:
 
 protected:
 	/**
-	 * Carries out the actual Minmax algorithm.
+	 * Carries out the actual Minimax algorithm.
 	 *
 	 * @param InBoard The current state of a tic-tac-toe board.
-	 * @param Depth   The current level of a minmax tree.
+	 * @param Depth   The current level of a minimax tree.
 	 * @param IsMax   Whether we are estimating for a "max" player.
-	 * @return The minmax evaluation for the given arguments.
+	 * @return The minimax evaluation for the given arguments.
 	 */
-	int Minmax(Board*& InBoard, int Depth, bool IsMax);
+	int Minimax(Board*& InBoard, int Depth, bool IsMax);
 };
 
 

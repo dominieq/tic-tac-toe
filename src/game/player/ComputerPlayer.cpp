@@ -19,7 +19,7 @@ void ComputerPlayer::PerformMove(Board*& InBoard) {
 			if ((*InBoard)[i][j] == EMPTY) {
 
 				(*InBoard)[i][j] = Sign;
-				auto MoveScore = Minmax(InBoard, 0, !IsMax);
+				auto MoveScore = Minimax(InBoard, 0, !IsMax);
 				(*InBoard)[i][j] = EMPTY;
 
 				if (IsMax) {
@@ -42,7 +42,7 @@ void ComputerPlayer::PerformMove(Board*& InBoard) {
 	(*InBoard)[MaxRow][MaxColumn] = Sign;
 }
 
-int ComputerPlayer::Minmax(Board*& InBoard, int Depth, bool IsMax) {
+int ComputerPlayer::Minimax(Board*& InBoard, int Depth, bool IsMax) {
 
 	BoardContent Score = InBoard->DetermineWinner();
 
@@ -60,7 +60,7 @@ int ComputerPlayer::Minmax(Board*& InBoard, int Depth, bool IsMax) {
 				if ((*InBoard)[i][j] == EMPTY) {
 
 					(*InBoard)[i][j] = O_SIGN;
-					BestScore = max(BestScore, Minmax(InBoard, Depth + 1, !IsMax));
+					BestScore = max(BestScore, Minimax(InBoard, Depth + 1, !IsMax));
 					(*InBoard)[i][j] = EMPTY;
 				}
 			}
@@ -74,7 +74,7 @@ int ComputerPlayer::Minmax(Board*& InBoard, int Depth, bool IsMax) {
 				if ((*InBoard)[i][j] == EMPTY) {
 
 					(*InBoard)[i][j] = X_SIGN;
-					BestScore = min(BestScore, Minmax(InBoard, Depth + 1, !IsMax));
+					BestScore = min(BestScore, Minimax(InBoard, Depth + 1, !IsMax));
 					(*InBoard)[i][j] = EMPTY;
 				}
 			}
