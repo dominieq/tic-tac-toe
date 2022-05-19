@@ -26,12 +26,12 @@ int main() {
 					switch (NewGameChoice = NewGameMenu.ShowAndWait(cin, cout)) {
 						case 1: {
 							Game Game("Player1", "Player2");
-							Game.PlayGame();
+							Game.PlayGame(cout);
 							break;
 						}
 						case 2: {
 							Game Game("Player");
-							Game.PlayGame();
+							Game.PlayGame(cout);
 							break;
 						}
 						default:

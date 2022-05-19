@@ -21,31 +21,31 @@ Game::~Game() {
 	delete GameBoard;
 }
 
-void Game::PlayGame() {
+void Game::PlayGame(ostream& StdOutput) {
 	Moves = 0;
 	BoardContent Winner = EMPTY;
 
 	while (Winner == EMPTY && Moves < 9) {
-		Winner = PerformMove(Player_1);
+		Winner = PerformMove(Player_1, StdOutput);
 		if (Winner != EMPTY || Moves >= 9) break;
-		Winner = PerformMove(Player_2);
+		Winner = PerformMove(Player_2, StdOutput);
 	}
 
 	switch (Winner) {
 		case X_SIGN:
-			cout << Player_1->GetName() << " won" << endl;
+			StdOutput << Player_1->GetName() << " won" << endl;
 			break;
 		case O_SIGN:
-			cout << Player_2->GetName() << " won" << endl;
+			StdOutput << Player_2->GetName() << " won" << endl;
 			break;
 		default:
-			cout << "Draw" << endl;
+			StdOutput << "Draw" << endl;
 			break;
 	}
 }
 
-BoardContent Game::PerformMove(Player*& Player) {
-	cout << *GameBoard;
+BoardContent Game::PerformMove(Player*& Player, ostream& StdOutput) {
+	StdOutput << *GameBoard;
 	Player->PerformMove(GameBoard);
 
 	if (++Moves >= 5) {

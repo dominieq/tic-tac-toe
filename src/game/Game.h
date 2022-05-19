@@ -19,10 +19,10 @@ public:
 
 	virtual ~Game();
 
-	void PlayGame();
+	void PlayGame(std::ostream& StdOutput);
 
 private:
-	BoardContent PerformMove(Player*& Player);
+	BoardContent PerformMove(Player*& Player, std::ostream& StdOutput);
 };
 
 
