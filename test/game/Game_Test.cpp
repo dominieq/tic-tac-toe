@@ -10,9 +10,8 @@ protected:
 	}
 };
 
-TEST(GameTest, should_properly_construct_and_destruct_game) {
-	Game NewGame("Player1", "Player2");
-	ASSERT_EQ(true, true);
+TEST(GameTest, should_properly_construct_and_destruct_game_with_two_players) {
+	ASSERT_NO_THROW(Game NewGame("Player1", "Player2"));
 }
 
 TEST(GameTest, should_properly_construct_and_destruct_game_with_one_player) {
