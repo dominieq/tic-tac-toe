@@ -105,7 +105,7 @@ TEST_P(BoardTestWithSignParam, should_find_toe_in_diagonal_from_right_to_left) {
 	ASSERT_EQ(Actual, Expected);
 }
 
-TEST_P(BoardTestWithSignParam, should_return_true_when_board_is_filled) {
+TEST_P(BoardTestWithSignParam, should_return_false_when_board_is_filled) {
 
 	// given
 	for (int i = 0; i < Board::BoardSize; i++) {
@@ -122,7 +122,7 @@ TEST_P(BoardTestWithSignParam, should_return_true_when_board_is_filled) {
 }
 
 INSTANTIATE_TEST_SUITE_P(
-		board_test_with_sign_param,
+		board_test_with_x_and_o_signs,
 		BoardTestWithSignParam,
 		::testing::Values(
 				X_SIGN,
